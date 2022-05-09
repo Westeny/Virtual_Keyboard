@@ -1,0 +1,101 @@
+body{
+}
+
+p{
+    font-size: 24px;
+}
+
+.text_area{
+    width: 1000px;
+    height: 200px;
+    margin: 50px 0;
+}
+
+.main_wrapper{
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+.keyboard_wrapper{
+    background-color: gray;
+    border: solid 2px black;
+    border-radius: 10px;
+}
+
+.key{
+    font-size: 20px;
+    background-color: black;
+    color: azure;
+    display: flex;
+    width: 75px;
+    height: 75px;
+    margin: 3px;
+    border: solid 1px black;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    display: flex;
+}
+.keyboard_wrapper{
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.key_hidden{
+    display: none;
+}
+
+#Space{
+    width: 425px;
+}
+
+#Enter{
+    margin-top: -80px;
+    height: 158px;
+}
+
+#ControlLeft{
+    width: 100px;
+}
+
+#Tab{
+   width: 100px;
+}
+
+#CapsLock{
+    width: 115px;
+}
+
+#ShiftLeft{
+    width: 115px;
+}
+
+
+#Backspace{
+    width: 115px;
+}
+#MetaLeft{
+    width: 100px;
+}
+#MetaRight{
+    width: 100px;
+}
+
+#OptionLeft, #OptionRight{
+    width: 91px;
+}
+
+
+.pressed{
+    background-color: azure;
+    color: black;
+}
