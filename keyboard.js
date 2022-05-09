@@ -124,7 +124,6 @@ keyboard_4_row.classList.add('row')
 const keyboard_5_row = document.createElement('div');
 keyboard_5_row.classList.add('row')
 
-
 const renderKeyRow = (row, row_container) =>{
   for (let i = 0; i < row['name'].length; i++){
     row_container.appendChild(createKey(new Key(row['name'][i], row['en'][i], row['ru'][i], row['en_shift'][i], row['ru_shift'][i])))
@@ -144,11 +143,8 @@ KEYBOARD_WRAPPER.appendChild(keyboard_3_row)
 KEYBOARD_WRAPPER.appendChild(keyboard_4_row)
 KEYBOARD_WRAPPER.appendChild(keyboard_5_row)
 
-
-
 let info_text = document.createElement('p');
 info_text.textContent = 'Переключение языка ALT + CTRL';
-
 
 KEYBOARD_WRAPPER.classList.add('keyboard_wrapper')
 
@@ -193,7 +189,6 @@ const changeLayOut = (layout) =>{
 checkLayOut(LayOut)
 
 KEYBOARD_WRAPPER.addEventListener('mousedown', (e) =>{
-  console.log(Meta)
   if(e.target.classList =='row'){return}
   e.target.closest('div').classList.add('pressed')
   TEXT_AREA.focus()
@@ -214,9 +209,7 @@ KEYBOARD_WRAPPER.addEventListener('mousedown', (e) =>{
       break;
     case "ControlLeft":
       if (e.metaKey == true || Meta == true){
-        console.log(123)
         LayOut = changeLayOut(LayOut);
-        console.log(LayOut)
         checkLayOut(LayOut);}
         break;
     case 'AltLeft':
@@ -236,7 +229,6 @@ KEYBOARD_WRAPPER.addEventListener('mousedown', (e) =>{
       LayOut = shiftLayOut(LayOut);
       checkLayOut(LayOut);
       break;
-     
     case 'ShiftRight':
       Shift = true;
       LayOut = shiftLayOut(LayOut);
@@ -253,7 +245,6 @@ KEYBOARD_WRAPPER.addEventListener('mouseup', (e) =>{
     case 'MetaLeft':
       Meta = false;
       e.target.closest('div').classList.remove('pressed')
-
       break;
     case 'MetaRight':
       Meta = false;
@@ -274,19 +265,15 @@ KEYBOARD_WRAPPER.addEventListener('mouseup', (e) =>{
     case 'CapsLock':
       if(CapsLock == true){
         CapsLock = false;
-        e.target.closest('div').classList.remove('pressed')
-      }
+        e.target.closest('div').classList.remove('pressed')}
       break;
     default:
       e.target.closest('div').classList.remove('pressed')
       break;
   }
 })
-KEYBOARD_WRAPPER.addEventListener('mouseleave',(e) =>
-e.target.closest('div').classList.remove('pressed')
-
-)
-
+KEYBOARD_WRAPPER.addEventListener('mouseleave',(e) =>{
+  e.target.closest('div').classList.remove('pressed')})
 
 window.addEventListener('keydown', (e) =>{
   if (e['code'] == 'Tab'){
@@ -299,7 +286,6 @@ window.addEventListener('keydown', (e) =>{
     checkLayOut(LayOut);
   }
   if(e['code'] == 'ControlLeft' && (e.metaKey == true || Meta == true)){
-     console.log('123')
     LayOut = changeLayOut(LayOut);
     checkLayOut(LayOut);
   }
@@ -312,13 +298,10 @@ window.addEventListener('keydown', (e) =>{
     checkLayOut(LayOut)
     document.getElementById(e['code']).classList.add('pressed')
   }else{
-    console.log(e)
     document.getElementById(e['code']).classList.add('pressed')
     TEXT_AREA.focus()
   }
 })
-
-
 
 window.addEventListener('keyup', (e) =>{
   if (e['code'] == 'ShiftLeft' || e['code'] == 'ShiftRight'){
